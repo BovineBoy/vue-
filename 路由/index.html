@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body>
+		<!-- <ul>
+			<li><a href="#/">yellow</a></li>
+			<li><a href="#/green">green</a></li>
+			<li><a href="#/blue">blue</a></li>
+		</ul>
+        <button>back</button> -->
+		<ul>
+			<li><a href="/">yellow</a></li>
+			<li><a href="/blue">blue</a></li>
+			<li><a href="/green">green</a></li>
+		</ul>
+		<script src="./index.js"></script>
+		<script>
+			// hash路由
+			// var button = document.querySelector('button');
+			// var router = new Routers();
+			// function changeBgc(color) {
+			// 	document.body.style.background = color;
+			// }
+			// router.route('/', function() {
+			// 	changeBgc('yellow');
+			// });
+			// router.route('/green', function() {
+			// 	changeBgc('green');
+			// });
+			// router.route('/blue', function() {
+			// 	changeBgc('blue');
+			// });
+			// button.addEventListener('click', function() {
+			// 	router.backOff();
+			// });
+
+			// history路由
+			var Router = new Routers();
+			const content = document.querySelector('body');
+			const ul = document.querySelector('ul');
+			function changeBgColor(color) {
+				content.style.backgroundColor = color;
+			}
+			Router.route('/', function() {
+				changeBgColor('yellow');
+			});
+			Router.route('/blue', function() {
+				changeBgColor('blue');
+			});
+			Router.route('/green', function() {
+				changeBgColor('green');
+			});
+			Router.init(location.pathname);
+			ul.addEventListener('click', e => {
+				if (e.target.tagName.toLowerCase() === 'a') {
+					e.preventDefault();
+					Router.go(e.target.getAttribute('href'));
+				}
+			});
+		</script>
+	</body>
+</html>
